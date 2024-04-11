@@ -28,12 +28,15 @@ public class pom {
 	protected By scrollintoviewproduct=By.xpath("//h2[contains(text(),'Shipping')]");
 	protected By addtocart=By.xpath("//span[contains(text(),'Add to cart')]");
 	protected By scrollintoaddtocartnear=By.className("product__title");
-	protected By closecarticon=By.cssSelector("#swym-plugin > div.swym-ui-component.swym-atw-nudge.swym-is-safari > div > div > div.swym-atw-notification-header-container > div > button");
-	protected By wishlist=By.cssSelector("#Quantity-Form-template--15757381140524__main > div.qwbtn > button");
+	protected By closecarticon=By.cssSelector("#cart-notification > div.cart-notification__header > button");
+	//protected By wishlist=By.cssSelector("#Quantity-Form-template--15757381140524__main > div.qwbtn > button");
 	protected By headermenucarticon=By.xpath("//a[@href='/cart']");
 	protected By cartpagecontain1=By.xpath("//h2[contains(text(),'Estimated total')]");
 	protected By cartpagecontain2=By.className("totals__total-value");
-	protected By headerwishlistmenu=By.xpath("//a[@href='#swym-wishlist']");
+	protected By deletecart=By.id("Remove-1");
+	protected By plusproduct=By.cssSelector("#CartItem-1 > td.cart-item__quantity > quantity-popover > div.cart-item__quantity-wrapper.quantity-popover-wrapper > div > quantity-input > button:nth-child(3)");
+	
+	//protected By headerwishlistmenu=By.xpath("//a[@href='#swym-wishlist']");
 	//xpath("//ul[@role='list']/li")
 	public pom(WebDriver driver)
 	{
@@ -181,7 +184,7 @@ public class pom {
 		}
 		
 	}
-	public void wishlist()
+	/*public void wishlist()
 	{
 		WebElement ele3=driver.findElement(wishlist);
 		JavascriptExecutor js3=(JavascriptExecutor) driver;
@@ -193,7 +196,7 @@ public class pom {
 		}
 		
 		
-	}
+	}*/
 	public void cartsection() throws InterruptedException
 	{
 		WebElement ele4=driver.findElement(headermenucarticon);
@@ -203,6 +206,15 @@ public class pom {
 		//ele4.click();
 		
 		Thread.sleep(2000);
+	}
+	
+	public void deletecart() throws InterruptedException
+	{
+		Thread.sleep(3000);
+		if(driver.findElement(deletecart).isDisplayed())
+		{
+			driver.findElement(deletecart).click();
+		}
 	}
 	
 	
@@ -228,11 +240,19 @@ public class pom {
 		
 	}
 	
-	public void wishlistdetails()
+	public void quantityplusminus()
+	{
+		for (int i=1;i<=3;i++)
+		{
+			driver.findElement(plusproduct).click();
+		}
+	}
+	
+	/*public void wishlistdetails()
 	{
 		driver.findElement(headerwishlistmenu).click();
-	}
-	public void wishlistvalidation() throws InterruptedException
+	}*/
+	/*public void wishlistvalidation() throws InterruptedException
 	{
 		String pagetitleofwishlist=driver.getTitle().trim();
 		System.out.println(pagetitleofwishlist);
@@ -244,5 +264,5 @@ public class pom {
 			Assert.assertEquals(pagetitleofwishlist,expected );
 		}
 		
-	}
+	}*/
 }

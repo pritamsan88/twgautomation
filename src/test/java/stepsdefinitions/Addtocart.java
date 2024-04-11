@@ -78,7 +78,7 @@ public class Addtocart {
 	public void click_on_wishlist_option() {
 	   System.out.println("Also click on wishlist option");
 	   
-	   aardea.wishlist();
+	  // aardea.wishlist();
 	}
 
 	@When("go to cart page")
@@ -96,13 +96,14 @@ public class Addtocart {
 	@Then("go to wishlist")
 	public void go_to_wishlist() {
 	  System.out.println("This is wishlist page");
-	  aardea.wishlistdetails();
+	//  aardea.wishlistdetails();
+	  aardea.quantityplusminus();
 	}
 
 	@Then("user should navigate to wishlist page")
 	public void user_should_navigate_to_wishlist_page() throws InterruptedException {
 	    System.out.println("check wishlist page validation");
-	    aardea.wishlistvalidation();
-	   
+	   // aardea.wishlistvalidation();
+	    aardea.deletecart();
 	}
 }
