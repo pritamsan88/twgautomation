@@ -281,6 +281,7 @@ public class Puplist {
 		WebElement mydogsneeds=driver.findElement(needs);
 		js.executeScript("arguments[0].click();", mydogsneeds);
 		Thread.sleep(1000);
+		
 		 List<WebElement> Anyfoodrules=driver.findElements(foodrules);
 			
 			for(WebElement foodrules:Anyfoodrules)
