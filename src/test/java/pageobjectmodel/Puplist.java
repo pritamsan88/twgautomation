@@ -39,6 +39,7 @@ public class Puplist {
 	By editpupyear2=By.xpath("//select[@name='dog_age_year']/option");
 	By editpupmonth2=By.xpath("//select[@name='dog_age_month']/option");
 	By deletepuplist=By.xpath("//button[@name='delete_dog_profile']");
+	By pupaddrequirefielderroralert=By.cssSelector("span.error-message");
 	
 	public Puplist(WebDriver driver)
 	{
@@ -167,7 +168,27 @@ public class Puplist {
 		submit.click();
 		Thread.sleep(1000);
 	}
-	
+	public void clickpupsubmit1() throws InterruptedException
+	{
+		WebElement submit=driver.findElement(By.xpath("//input[@type='submit']"));
+		Thread.sleep(1000);
+		js.executeScript("arguments[0].scrollIntoView();", submit);
+		js.executeScript("arguments[0].click();", submit);
+		List<WebElement> requiredfield= driver.findElements(pupaddrequirefielderroralert);
+		
+		for (WebElement error:requiredfield)
+		{
+			
+			String alert=error.getText().trim();
+			if(!alert.isEmpty())
+			System.out.println("Required fields are :"+alert);
+		}
+		
+		
+		
+		//submit.click();
+		Thread.sleep(1000);
+	}
 	public void verifypuplistadded()
 	{
 		try {

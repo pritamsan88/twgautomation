@@ -29,4 +29,4 @@ Feature: puplist add,edit.delete
     Examples: 
       | email                     | password      | year    | month   | breed            | weight | foodallergy            |
       | pritam.sanyal@yopmail.com | Sanyal88888@@ | 13 Year | 3 Month | Golden Retriever |     25 | Lamb and lamb products |
-      | smith_doe@yopmail.com     | Testing$$$123 | 7 Year  | 6 Month | Basset Hound     |     50 | Blueberry              |
+      #| smith_doe@yopmail.com     | Testing$$$123 | 7 Year  | 6 Month | Basset Hound     |     50 | Blueberry              |

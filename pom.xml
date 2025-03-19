@@ -42,20 +42,47 @@
     <artifactId>cucumber-reporting</artifactId>
     <version>5.8.4</version>
 </dependency>
-
+<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+<dependency>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.5.2</version>
+</dependency>
 </dependencies>
 <build>
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.0.0-M7</version>
+            <version>3.5.2</version>
             <configuration>
-                <systemPropertyVariables>
-                    <cucumber.options>--plugin json:target/cucumber-reports/CucumberReport.json</cucumber.options>
+                
+               <systemPropertyVariables>
+                     <argLine>--plugin json:target/cucumber-reports/CucumberReport.json</argLine>
                 </systemPropertyVariables>
+          
             </configuration>
         </plugin>
+         <plugin>
+            <groupId>net.masterthought</groupId>
+           <artifactId>maven-cucumber-reporting</artifactId>
+            <version>5.8.4</version>
+            <executions>
+                <execution>
+                    <id>generate-cucumber-report</id>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>generate</goal>
+                    </goals>
+                    <configuration>
+                        <projectName>Twg puplist</projectName>
+                        <outputDirectory>${project.build.directory}/cucumber-reports</outputDirectory>
+                        <jsonFiles>${project.build.directory}/cucumber-reports/CucumberReport.json</jsonFiles>
+                        <reportTargetDirectory>${project.build.directory}/cucumber-reports</reportTargetDirectory>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
     </plugins>
-</build>
+</build> 
 </project>

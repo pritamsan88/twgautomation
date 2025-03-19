@@ -62,6 +62,7 @@ public class Puplistoperation {
 	public void user_add_details_of_pup_year_and_month_and_golden_retriever(String year,String month,String breed) throws InterruptedException {
 
 		System.out.println("pupadded with details...... ...:-");
+		pup.clickpupsubmit1();
 		pup.addpup(year, month, breed);
 	}
 
