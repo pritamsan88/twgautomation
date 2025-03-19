@@ -36,6 +36,12 @@
     <artifactId>jna-platform</artifactId>
     <version>5.14.0</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/net.masterthought/maven-cucumber-reporting -->
+<dependency>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>5.7.6</version>
+</dependency>
 
 </dependencies>
 <build>
@@ -46,13 +52,32 @@
             <version>3.0.0-M7</version>
             <configuration>
                 
-               <systemPropertyVariables>
-                     <cucumber.options>--plugin json:target/cucumber-reports/CucumberReport.json</cucumber.options>
-                </systemPropertyVariables>
+               <includes>
+            <include>**/testrunner.java</include>
+               </includes>
           
             </configuration>
         </plugin>
-       
+       <plugin>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>5.7.6</version>
+    <executions>
+        <execution>
+            <id>report</id>
+            <phase>verify</phase>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <configuration>
+                <projectName>Cucumber Project</projectName>
+                <outputDirectory>${project.build.directory}/cucumber-reports</outputDirectory>
+                <jsonFiles>${project.build.directory}/cucumber-reports/Cucumber.json</jsonFiles>
+                <reportTargetDirectory>${project.build.directory}/cucumber-reports</reportTargetDirectory>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
          </plugins>
 </build> 
 </project>
