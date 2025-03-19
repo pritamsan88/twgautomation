@@ -58,7 +58,7 @@
             <configuration>
                 
                <systemPropertyVariables>
-                     <argLine>--plugin json:target/cucumber-reports/CucumberReport.json</argLine>
+                     <cucumber.options>--plugin json:target/cucumber-reports/CucumberReport.json</cucumber.options>
                 </systemPropertyVariables>
           
             </configuration>
@@ -78,7 +78,7 @@
                         <projectName>Twg puplist</projectName>
                         <outputDirectory>${project.build.directory}/cucumber-reports</outputDirectory>
                         <jsonFiles>${project.build.directory}/cucumber-reports/CucumberReport.json</jsonFiles>
-                        <reportTargetDirectory>${project.build.directory}/cucumber-reports</reportTargetDirectory>
+                        
                     </configuration>
                 </execution>
             </executions>
